@@ -1,0 +1,156 @@
+services:
+  automated-testing-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PYDEVD_DISABLE_FILE_VALIDATION=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=${DEBUG:-0}
+      - MOCK_OPENAI=${MOCK_OPENAI:-0}
+      - HOST_STREAMLIT_PORT=8501
+      - HOST_NOVNC_PORT=6081
+      - HOST_APP_PORT=8081
+      - DISPLAY_NUM=1
+    volumes:
+      - ./tool-output/container-files-1:/home/computeruse/local
+    ports:
+      - "5901:5900"
+      - "8501:8501"
+      - "6081:6080"
+      - "8081:8080"
+      - "5679:5678"
+      - "9223:9222"
+    stdin_open: true
+    tty: true
+
+  automated-testing-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PYDEVD_DISABLE_FILE_VALIDATION=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=${DEBUG:-0}
+      - MOCK_OPENAI=${MOCK_OPENAI:-0}
+      - HOST_STREAMLIT_PORT=8502
+      - HOST_NOVNC_PORT=6082
+      - HOST_APP_PORT=8082
+      - DISPLAY_NUM=2
+    volumes:
+      - ./tool-output/container-files-2:/home/computeruse/local
+    ports:
+      - "5902:5900"
+      - "8502:8501"
+      - "6082:6080"
+      - "8082:8080"
+      - "5680:5678"
+      - "9224:9222"
+    stdin_open: true
+    tty: true
+
+  automated-testing-3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PYDEVD_DISABLE_FILE_VALIDATION=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=${DEBUG:-0}
+      - MOCK_OPENAI=${MOCK_OPENAI:-0}
+      - HOST_STREAMLIT_PORT=8503
+      - HOST_NOVNC_PORT=6083
+      - HOST_APP_PORT=8083
+      - DISPLAY_NUM=3
+    volumes:
+      - ./tool-output/container-files-3:/home/computeruse/local
+    ports:
+      - "5903:5900"
+      - "8503:8501"
+      - "6083:6080"
+      - "8083:8080"
+      - "5681:5678"
+      - "9225:9222"
+    stdin_open: true
+    tty: true
+
+  automated-testing-4:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PYDEVD_DISABLE_FILE_VALIDATION=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=${DEBUG:-0}
+      - MOCK_OPENAI=${MOCK_OPENAI:-0}
+      - HOST_STREAMLIT_PORT=8504
+      - HOST_NOVNC_PORT=6084
+      - HOST_APP_PORT=8084
+      - DISPLAY_NUM=4
+    volumes:
+      - ./tool-output/container-files-4:/home/computeruse/local
+    ports:
+      - "5904:5900"
+      - "8504:8501"
+      - "6084:6080"
+      - "8084:8080"
+      - "5682:5678"
+      - "9226:9222"
+    stdin_open: true
+    tty: true
+
+  automated-testing-5:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PYDEVD_DISABLE_FILE_VALIDATION=1
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=${DEBUG:-0}
+      - MOCK_OPENAI=${MOCK_OPENAI:-0}
+      - HOST_STREAMLIT_PORT=8505
+      - HOST_NOVNC_PORT=6085
+      - HOST_APP_PORT=8085
+      - DISPLAY_NUM=5
+    volumes:
+      - ./tool-output/container-files-5:/home/computeruse/local
+    ports:
+      - "5905:5900"
+      - "8505:8501"
+      - "6085:6080"
+      - "8085:8080"
+      - "5683:5678"
+      - "9227:9222"
+    stdin_open: true
+    tty: true
+
+  automated-testing-6:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      environment:
+        - PYDEVD_DISABLE_FILE_VALIDATION=1
+        - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+        - OPENAI_API_KEY=${OPENAI_API_KEY}
+        - DEBUG=${DEBUG:-0}
+        - MOCK_OPENAI=${MOCK_OPENAI:-0}
+        - HOST_STREAMLIT_PORT=8506
+        - HOST_NOVNC_PORT=6086
+        - HOST_APP_PORT=8086
+        - DISPLAY_NUM=6
+      volumes:
+        - ./tool-output/container-files-6:/home/computeruse/local
+      ports:
+        - "5906:5900"
+        - "8506:8501"
+        - "6086:6080"
+        - "8086:8080"
+        - "5684:5678"
+        - "9228:9222"
+      stdin_open: true
+      tty: true

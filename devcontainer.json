@@ -1,0 +1,19 @@
+{
+  "name": "automate-testing",
+  "build": {
+    "dockerfile": "Dockerfile", // Points to the Dockerfile in the project
+    "context": "."              // The build context
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-python.python"           // Python extension for debugging
+      ]
+    }
+  },
+  "postCreateCommand": "pip install -r computer_use_demo/requirements.txt",  // Installs dependencies after container setup
+  "remoteUser": "computeruse"    // Sets the user as defined in Dockerfile
+}
