@@ -151,9 +151,6 @@ async def sampling_loop(
         )
 
     # Call the API
-    # we use raw_response to provide debug information to streamlit. Your
-    # implementation may be able call the SDK directly with:
-    # `response = client.messages.create(...)` instead.
     retries = 0
     while retries < 100:
         try:

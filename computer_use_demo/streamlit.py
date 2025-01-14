@@ -91,7 +91,7 @@ def setup_state():
     if "data_handler" not in st.session_state:
         st.session_state.data_handler = ReportDataHandler()
     if "popup" not in st.session_state:
-        st.session_state.popup = False
+        st.session_state.popup = False  # whether or not feedback popup is shown
     if "feedback" not in st.session_state:
         st.session_state.feedback = None
     if "wait_for_task" not in st.session_state:
@@ -203,7 +203,9 @@ def main():
                         chat,
                     )
 
-    if st.session_state.wait_for_task and st.session_state.popup == False:
+    if (
+        st.session_state.wait_for_task and st.session_state.popup == False
+    ):  # Waiting for new task input by user
         st.markdown("### Input your next task")
         with st.form(key="popup_form"):
             task_description = st.text_input("Enter your task description:")
@@ -238,6 +240,7 @@ def main():
     #     _render_message(new_message, Sender.USER, chat)
     #     st.session_state.data_handler.new_task(new_message)
 
+    # Popup allowing user to give feedback
     if st.session_state.popup:
         st.markdown(
             "### Was the task completed successfully? If not, please provide feedback."
@@ -279,7 +282,9 @@ def main():
                         "content": [{"type": "text", "text": message}],
                     }
                 )
-                st.session_state.wait_for_task = True
+                st.session_state.wait_for_task = (
+                    True  # Enable option to add the next task
+                )
                 st.session_state.data_handler.reset_task_interactions()
                 st.rerun()
 
@@ -298,7 +303,7 @@ def main():
         return
 
     with st.spinner("Running Agent..."):
-        # run the agent sampling loop with the newest message
+        # run the opena ai loop and execute the actions proposed by the agent
         from computer_use_demo.openai_loop import custom_loop
 
         most_recent_message = st.session_state["messages"][-1]["content"][0]["text"]
